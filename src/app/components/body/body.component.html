@@ -3,14 +3,14 @@
   <div class="col">
     <h1>*ngIf</h1>
     <hr>
-    <div class="card border-danger mb-3" style="width: 100%">
+    <div *ngIf="mostrar" class="card border-danger mb-3" style="width: 100%">
       <div class="card-header">Header</div>
       <div class="card-body text-danger">
-        <h5 class="card-title">Danger card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">{{ frase.autor }}</h5>
+        <p class="card-text">{{ frase.mensaje }}</p>
       </div>
     </div>
-    <button class="btn btn-outline-danger btn-block">
+    <button (click)=" mostrar = !mostrar" class="btn btn-outline-danger btn-block">
       Mostrar / Ocultar
     </button>
   </div>
@@ -19,11 +19,10 @@
     <h1>*ngFor</h1>
     <hr>
     <ul class="list-group">
-      <li class="list-group-item list-group-item-danger">An item</li>
-      <li class="list-group-item list-group-item-danger">A second item</li>
-      <li class="list-group-item list-group-item-danger">A fourth item</li>
-      <li class="list-group-item list-group-item-danger">A third item</li>
-      <li class="list-group-item list-group-item-danger">And a fifth one</li>
+      <li *ngFor="let simpson of personajes; let i = index" class="list-group-item list-group-item-danger">
+        {{ i + 1 }} {{ simpson }}
+      </li>
     </ul>
   </div>
 </div>
+
